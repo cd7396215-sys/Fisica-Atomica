@@ -1,5 +1,7 @@
-fastapi
-uvicorn
-jinja2
-python-dotenv
-pydantics
+fastapi==0.111.0
+uvicorn==0.30.1
+jinja2==3.1.4
+python-dotenv==1.0.1
+openai==1.34.0
+pydantic==2.7.4
+google-genai==0.1.1

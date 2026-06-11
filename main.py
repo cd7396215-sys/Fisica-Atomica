@@ -1,5 +1,4 @@
 import os
-import uvicorn
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
@@ -14,10 +13,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 @app.get("/")
 async def serve_chatbot():
-    return FileResponse("charts.html")
+    # Asegúrate de que charts.html esté en la raíz de tu proyecto junto a main.py
+    if os.path.exists("charts.html"):
+        return FileResponse("charts.html")
+    raise HTTPException(status_code=404, detail="Archivo charts.html no encontrado")
 
-if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+# Nota: Quitamos el bloque uvicorn.run de abajo ya que Vercel levanta la app automáticamente
