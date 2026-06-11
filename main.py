@@ -3,9 +3,7 @@ import uvicorn
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-from openai import AsyncOpenAI
-from google import genai
+
 app = FastAPI(title="Fisica Atomica")
 
 app.add_middleware(
